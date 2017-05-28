@@ -305,7 +305,7 @@ do {
 		if (pay_to_print($_SESSION['prefsPayToPrint'],$row_log['brewPaid'])) $entry_output .= $print_forms_link;
 		
 		if ((NHC) && ($prefix == "final_")) $entry_output .= $print_recipe_link;
-		if ($row_log['brewPaid'] != 1) $entry_output .= $delete_link;
+		if (($row_log['brewPaid'] != 1 || ($_SESSION['contestEntryFee'] == "0")) $entry_output .= $delete_link;
 		else $entry_output .= sprintf("<span class=\"fa fa-lg fa-trash-o text-muted\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"%s\" href=\"#\"></span>",$brewer_entries_text_015);
 	}
 	
